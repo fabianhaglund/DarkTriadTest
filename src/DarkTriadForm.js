@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import { ConstantNodeDependencies } from "mathjs";
+import React, { useRef, useState } from "react";
+import { ZscoreMachiavelli, ZscoreNarcissism, ZscorePsychopathy, Percentile } from "./Zscore.js";
 
 const questions = [
   "It’s not wise to tell your secrets.",
@@ -63,12 +65,66 @@ const fields = [
 
 export function DarkTriadForm() {
 
+    const [mach, setMach] = useState();
+    const [narc, setNarc] = useState();
+    const [psych, setPsych] = useState();
+
   const responses = useRef({});
 
   const onSubmit = () => {
-    console.log("hej");
-    console.log(JSON.stringify(responses.current))
+    var responseValues = Object.values(responses.current).map(v => parseInt(v))
+    var results = Results(responseValues)
+    setMach(results[0])
+    setNarc(results[1])
+    setPsych(results[2])
   };
+
+  const MachiavelliScore = (responses) => {
+      var sum = responses.reduce((a, b) => a + b, 0)
+      var x = sum / responses.length;
+      var score = ZscoreMachiavelli(x);
+      return score;
+  };
+
+  const NarcissismScore = (responses) => {
+      responses[1] = 6 - responses[1]
+      responses[5] = 6 - responses[5]
+      responses[8] = 6 - responses[8]
+      var sum = responses.reduce((a, b) => a + b, 0)
+      var x = sum / responses.length;
+      var score = ZscoreNarcissism(x);
+      return score;
+  };
+
+  const PsychopathyScore = (responses) => {
+    responses[1] = 6 - responses[1]
+    responses[6] = 6 - responses[6]
+    var sum = responses.reduce((a, b) => a + b, 0)
+    var x = sum / responses.length;
+    var score = ZscorePsychopathy(x);
+    return score;
+};
+
+const Results = (responses) => {
+
+    
+    var machiavelliResponses = responses.slice(0,9);
+    var machiavelli = MachiavelliScore(machiavelliResponses)
+    console.log(machiavelli)
+    var machiavelliPercentile = Percentile(machiavelli)
+    
+    var narcissismResponses = responses.slice(9,18);
+    var narcissism = NarcissismScore(narcissismResponses);
+    console.log(narcissism)
+    var narcissismPercentile = Percentile(narcissism);
+    
+    var psychopathyResponses = responses.slice(18,27);
+    var psychopathy = PsychopathyScore(psychopathyResponses);
+    console.log(psychopathy)
+    var psychopathyPercentile = Percentile(psychopathy);
+
+    return [machiavelliPercentile, narcissismPercentile, psychopathyPercentile];
+}
 
   return (
     <div>
@@ -88,14 +144,25 @@ export function DarkTriadForm() {
             />
           </label>
         ))}
-
-        <label>
-          Chose a code, can be whatever. 
-          <input type="text" name="Code" />
-        </label>
-
         <input type="submit" value="Submit" />
       </form>
+
+      <div>
+          Machiavelli Percentile: 
+          { mach }
+      </div>
+
+      <div>
+          Narcissism Percentile: 
+          { narc }
+      </div>
+
+      <div>
+          Psychopathy Percentile: 
+          { psych }
+      </div>
+
+
     </div>
   );
 }
