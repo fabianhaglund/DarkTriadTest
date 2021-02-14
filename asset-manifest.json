@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/DarkTriadTest/static/js/main.21b1fb52.chunk.js",
-    "main.js.map": "/DarkTriadTest/static/js/main.21b1fb52.chunk.js.map",
+    "main.js": "/DarkTriadTest/static/js/main.09674176.chunk.js",
+    "main.js.map": "/DarkTriadTest/static/js/main.09674176.chunk.js.map",
     "runtime-main.js": "/DarkTriadTest/static/js/runtime-main.bf8edcb9.js",
     "runtime-main.js.map": "/DarkTriadTest/static/js/runtime-main.bf8edcb9.js.map",
     "static/js/2.1e9bb3e1.chunk.js": "/DarkTriadTest/static/js/2.1e9bb3e1.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.bf8edcb9.js",
     "static/js/2.1e9bb3e1.chunk.js",
-    "static/js/main.21b1fb52.chunk.js"
+    "static/js/main.09674176.chunk.js"
   ]
 }
