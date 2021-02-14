@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/DarkTriadTest/static/js/main.d67d3240.chunk.js",
-    "main.js.map": "/DarkTriadTest/static/js/main.d67d3240.chunk.js.map",
+    "main.js": "/DarkTriadTest/static/js/main.21b1fb52.chunk.js",
+    "main.js.map": "/DarkTriadTest/static/js/main.21b1fb52.chunk.js.map",
     "runtime-main.js": "/DarkTriadTest/static/js/runtime-main.bf8edcb9.js",
     "runtime-main.js.map": "/DarkTriadTest/static/js/runtime-main.bf8edcb9.js.map",
-    "static/js/2.59003585.chunk.js": "/DarkTriadTest/static/js/2.59003585.chunk.js",
-    "static/js/2.59003585.chunk.js.map": "/DarkTriadTest/static/js/2.59003585.chunk.js.map",
+    "static/js/2.1e9bb3e1.chunk.js": "/DarkTriadTest/static/js/2.1e9bb3e1.chunk.js",
+    "static/js/2.1e9bb3e1.chunk.js.map": "/DarkTriadTest/static/js/2.1e9bb3e1.chunk.js.map",
     "index.html": "/DarkTriadTest/index.html",
-    "static/js/2.59003585.chunk.js.LICENSE.txt": "/DarkTriadTest/static/js/2.59003585.chunk.js.LICENSE.txt"
+    "static/js/2.1e9bb3e1.chunk.js.LICENSE.txt": "/DarkTriadTest/static/js/2.1e9bb3e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bf8edcb9.js",
-    "static/js/2.59003585.chunk.js",
-    "static/js/main.d67d3240.chunk.js"
+    "static/js/2.1e9bb3e1.chunk.js",
+    "static/js/main.21b1fb52.chunk.js"
   ]
 }
