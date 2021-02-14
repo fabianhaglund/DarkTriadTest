@@ -1,5 +1,10 @@
 import React, { useRef, useState } from "react";
-import { Question, SubmitButton, Heading, SubHeading } from "../components/index";
+import {
+  Question,
+  SubmitButton,
+  Heading,
+  SubHeading,
+} from "../components/index";
 import {
   ZscoreMachiavelli,
   ZscoreNarcissism,
@@ -30,12 +35,9 @@ export function DarkTriadForm() {
     var responseValues = Object.values(
       responseRefs.current ?? []
     ).map((value: string) => parseInt(value));
-    console.log("responseValues");
-    console.log(responseValues);
-    var results = Results(responseValues);
-    setMachiavelliResult(results["machiavelli"]);
-    setNarcissismResult(results["narcissism"]);
-    setPsychopathyResult(results["psychopathy"]);
+    setMachiavelliResult(Results(responseValues)["machiavelli"]);
+    setNarcissismResult(Results(responseValues)["narcissism"]);
+    setPsychopathyResult(Results(responseValues)["psychopathy"]);
     setShowResults(true);
   };
 
@@ -69,13 +71,10 @@ export function DarkTriadForm() {
   };
 
   const Results = (responses: number[]) => {
-    console.log("RESULTS");
-    console.log(responses); // []
     // Pick out responses for each personality trait (9 questions each in the following order)
     var machiavelliResponses = responses.slice(0, 9);
     var narcissismResponses = responses.slice(9, 18);
     var psychopathyResponses = responses.slice(18, 27);
-
     // Compute results
     var results = {
       machiavelli: () =>
@@ -87,29 +86,32 @@ export function DarkTriadForm() {
     return results;
   };
 
-  const Explanation = (result: number | null) => {
-    var text = ""
-    if (result === null){
-      text = "NaN"
-    } else if (result > 90){
-      text = text.concat(result.toString(), " %   |  ", "You are an extreme case")
-    } else if (result > 50){
-      text = text.concat(result.toString(), " %   |  ", "Above average")
-    } else if (result > 25){
-      text = text.concat(result.toString(), " %   |  ", "Below average")
+  const Explanation = (result: number | null) => {
+    var text = "";
+    if (result === null) {
+      text = "NaN";
+    } else if (result > 90) {
+      text = text.concat(
+        result.toString(),
+        " %   |  ",
+        "You are an extreme case"
+      );
+    } else if (result > 50) {
+      text = text.concat(result.toString(), " %   |  ", "Above average");
+    } else if (result > 25) {
+      text = text.concat(result.toString(), " %   |  ", "Below average");
     } else {
-      text = text.concat(result.toString(), " %   |  ", "Nope...")
+      text = text.concat(result.toString(), " %   |  ", "Nope...");
     }
 
-    return <SubHeading text={text}/>
-
-  }
+    return <SubHeading text={text} />;
+  };
 
   return (
     <div>
       {showResults ? (
-        <div style={{ display: "flex", flexDirection:"column"}}>
-          <Heading text="Thank you, here are your results"/>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <Heading text="Thank you, here are your results" />
           <SubHeading text="MACHIAVELLIAN?" />
           {Explanation(machiavelliResult ?? null)}
           <SubHeading text="NARCISSIST?" />
@@ -121,39 +123,37 @@ export function DarkTriadForm() {
         </div>
       ) : (
         <div>
-          <h1>
-            Welcome to the Dark Triad!
-          </h1>
-          <h4>
-            Test yourself for machiavellianism, narcissism and psychopathy. 
+          <Heading text="Welcome to the Dark Triad!" />
+          <SubHeading
+            text="Test yourself for machiavellianism, narcissism and psychopathy. 
             Reply as well as you can to all questions with a value of 1 to 5 
-            where:
-          </h4>
-          <h4>
-            1 = fully disagree, 5 = fully agree
-          </h4>
-        <form
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={(e) => {
-            e.preventDefault();
-            onSubmit();
-          }}
+            where:"
+          />
+          <SubHeading text="1 = fully disagree, 5 = fully agree" />
+
+          <form
+            style={{ display: "flex", flexDirection: "column" }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmit();
+            }}
           >
-          {questions.map((q, i) => (
-            <Question
-            key={i}
-            question={q}
-            index={i}
-            name={fields[i]}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              responseRefs.current
-              ? (responseRefs.current[fields[i]] = e.target.value)
-              : null}
+            {questions.map((q, i) => (
+              <Question
+                key={i}
+                question={q}
+                index={i}
+                name={fields[i]}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  responseRefs.current
+                    ? (responseRefs.current[fields[i]] = e.target.value)
+                    : null
+                }
               />
-              ))}
-          <SubmitButton/>
-        </form>
-      </div>
+            ))}
+            <SubmitButton />
+          </form>
+        </div>
       )}
     </div>
   );
