@@ -141,6 +141,7 @@ export function DarkTriadForm() {
           >
           {questions.map((q, i) => (
             <Question
+            key={i}
             question={q}
             index={i}
             name={fields[i]}
