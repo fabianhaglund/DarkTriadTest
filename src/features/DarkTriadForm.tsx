@@ -22,7 +22,7 @@ export function DarkTriadForm() {
     [key: string]: string
   }
 
-  const responseRefs = useRef<ResponseRefObject>({});
+  const responseRefs = useRef<ResponseRefObject | null>({});
 
   const onSubmit = () => {
     var responseValues = Object.values(responseRefs.current ?? []).map((value: string) => parseInt(value))
