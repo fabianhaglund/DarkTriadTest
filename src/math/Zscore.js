@@ -21,6 +21,13 @@ export function ZscorePsychopathy(x) {
   return Z;
 }
 
+// Zscore Percentile function
+export function ZscorePercentile(score) {
+  // Filter out all values lower than score
+  // highest index represent percentile
+  return percentiles.filter((p) => p < score).length;
+}
+
 // Percentiles 
 const percentiles = [
   -2.326,
@@ -123,10 +130,3 @@ const percentiles = [
   2.054,
   2.326,
 ];
-
-// Zscore Percentile function
-export function ZscorePercentile(score) {
-  // Filter out all values lower than score
-  // highest index represent percentile
-  return percentiles.filter((p) => p < score).length;
-}
