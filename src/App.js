@@ -1,4 +1,4 @@
-import {DarkTriadForm} from "./DarkTriadForm";
+import { DarkTriadForm } from "./features/DarkTriadForm";
 
 function App() {
   return (

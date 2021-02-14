@@ -1,3 +1,5 @@
+
+// Dark Triad Z-scores
 export function ZscoreMachiavelli(x) {
   var m = 3;
   var sd = 0.59;
@@ -19,6 +21,7 @@ export function ZscorePsychopathy(x) {
   return Z;
 }
 
+// Percentiles 
 const percentiles = [
   -2.326,
   -2.054,
@@ -121,6 +124,9 @@ const percentiles = [
   2.326,
 ];
 
-export function Percentile(score) {
+// Zscore Percentile function
+export function ZscorePercentile(score) {
+  // Filter out all values lower than score
+  // highest index represent percentile
   return percentiles.filter((p) => p < score).length;
 }
