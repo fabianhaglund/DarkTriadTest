@@ -1,7 +1,7 @@
 
 // Dark Triad Z-scores
 export function ZscoreMachiavelli(x) {
-  var m = 3;
+  var m = 2.8;
   var sd = 0.59;
   var Z = (x - m) / sd;
   return Z;
@@ -15,7 +15,7 @@ export function ZscoreNarcissism(x) {
 }
 
 export function ZscorePsychopathy(x) {
-  var m = 2.2;
+  var m = 2.4;
   var sd = 0.6;
   var Z = (x - m) / sd;
   return Z;
