@@ -4,6 +4,7 @@ import {
   SubmitButton,
   Heading,
   SubHeading,
+  ReplyScaleIndex
 } from "../components/index";
 import {
   ZscoreMachiavelli,
@@ -131,7 +132,8 @@ export function DarkTriadForm() {
             Reply as honestly as you can to all questions with a value from 1 to 5 
             where:"
           />
-          <SubHeading text="1 = fully disagree, 5 = fully agree" />
+          <SubHeading text="1 fully disagree, 5 = fully agree" />
+          <ReplyScaleIndex/>
 
           <form
             style={{ display: "flex", flexDirection: "column" }}
