@@ -101,7 +101,7 @@ export function DarkTriadForm() {
     } else if (result > 25) {
       text = text.concat(result.toString(), " %   |  ", "Below average");
     } else if (result > 14) {
-      text = text.concat(result.toString(), " %   |  ", "You are sligthly below standard deviation from the mean");
+      text = text.concat(result.toString(), " %   |  ", "You are sligthly below 1 standard deviation from the mean");
     } else {
       text = text.concat(result.toString(), " %   |  ", "Nope...");
     }
