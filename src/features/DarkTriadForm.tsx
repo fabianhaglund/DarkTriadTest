@@ -128,7 +128,7 @@ export function DarkTriadForm() {
           <Heading text="Welcome to the Dark Triad!" />
           <SubHeading
             text="Test yourself for machiavellianism, narcissism and psychopathy. 
-            Reply as well as you can to all questions with a value of 1 to 5 
+            Reply as honestly as you can to all questions with a value from 1 to 5 
             where:"
           />
           <SubHeading text="1 = fully disagree, 5 = fully agree" />
