@@ -100,6 +100,8 @@ export function DarkTriadForm() {
       text = text.concat(result.toString(), " %   |  ", "Above average");
     } else if (result > 25) {
       text = text.concat(result.toString(), " %   |  ", "Below average");
+    } else if (result > 14) {
+      text = text.concat(result.toString(), " %   |  ", "You are sligthly below standard deviation from the mean");
     } else {
       text = text.concat(result.toString(), " %   |  ", "Nope...");
     }
